@@ -22,9 +22,9 @@ const TodoList = () => {
         },
 
     ];
-    const LocalTodoList = localStorage.getItem("todoListLocal");
-    // console.log(JSON.parse(LocalTodoList).length);
-    const ListItem = JSON.parse(LocalTodoList).length >0 ?  JSON.parse(LocalTodoList) : defaultTodoList;
+    const LocalTodoList = localStorage.getItem("todoListLocal") || defaultTodoList;
+    // console.log(LocalTodoList.length);
+    const ListItem = LocalTodoList.length > 0 ?  LocalTodoList : defaultTodoList;
     
     const [todoItems, setTodoItems]  = useState(ListItem);
     const [newItem, setNewItem] = useState('');
